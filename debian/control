@@ -1,0 +1,12 @@
+Source: ros-groovy-camera1394stereo
+Section: misc
+Priority: extra
+Maintainer: "Miquel Massot <miquel.massot@uib.es>"
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-camera-info-manager, ros-groovy-catkin, ros-groovy-driver-base, ros-groovy-dynamic-reconfigure, ros-groovy-image-transport, ros-groovy-nodelet, ros-groovy-tf
+Homepage: http://ros.org/wiki/camera1394stereo
+Standards-Version: 3.9.2
+
+Package: ros-groovy-camera1394stereo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-camera-info-manager, ros-groovy-driver-base, ros-groovy-dynamic-reconfigure, ros-groovy-image-transport, ros-groovy-nodelet, ros-groovy-tf
+Description: This is a modified version of the ROS driver for devices supporting the IEEE 1394 Digital Camera (IIDC) protocol in package camera1394. It adds support for reading from stereo pairs.
