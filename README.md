@@ -1,3 +1,22 @@
+## camera1394stereo - 1.0.2-0
+
+User `miquel@miquel-uib` released the packages in the `camera1394stereo` repository by running `/usr/bin/bloom-release camera1394stereo --track groovy --rosdistro groovy` on `Mon, 29 Jul 2013 07:28:11 -0000`
+
+The `camera1394stereo` package was released.
+
+Version of package(s) in repository `camera1394stereo`:
+- rosdistro version: `1.0.1-1`
+- old version: `1.0.1-1`
+- new version: `1.0.2-0`
+
+Versions of tools used:
+- bloom version: `0.4.4`
+- catkin_pkg version: `0.1.19`
+- rosdep version: `0.10.21`
+- rosdistro version: `0.2.13`
+- vcstools version: `0.1.31`
+
+
 ## camera1394stereo - 1.0.1-1
 
 User `miquel@miquel-uib` released the packages in the `camera1394stereo` repository by running `/usr/bin/bloom-release camera1394stereo --track groovy --rosdistro groovy` on `Fri, 26 Jul 2013 06:59:35 -0000`
