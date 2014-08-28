@@ -2,14 +2,8 @@
 Changelog for package camera1394stereo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.2 (2013-07-29)
-------------------
-* catkin cleanup
-* added CHANGELOG
-
-* added CHANGELOG
-
-* added CHANGELOG
+Forthcoming
+-----------
 
 1.0.1 (2013-07-26)
 ------------------

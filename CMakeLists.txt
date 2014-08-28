@@ -8,7 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
 	image_transport 
 	nodelet 
 	roscpp
-	sensor_msgs
+	rospy
 	tf)
 
 # This driver uses Boost threads
@@ -30,22 +30,11 @@ find_library(DC1394_LIBRARY
 # auto-generated dynamic reconfiguration GUI
 generate_dynamic_reconfigure_options(cfg/Camera1394Stereo.cfg)
 
-
 catkin_package(
-  CATKIN_DEPENDS
-    camera_info_manager
-    dynamic_reconfigure
-    image_transport
-    nodelet
-    roscpp
-    tf
-  DEPENDS Boost DC1394_LIBRARY
-  LIBRARIES src/nodes/camera1394stereo_nodelet)
+  LIBRARIES ${PROJECT_NAME}
+)
 
-# build package sources
-##MMC## add_subdirectory(src/nodes)
-#include_directories(src/nodes include ${catkin_INCLUDE_DIRS})
-include_directories(include cfg/cpp ${catkin_INCLUDE_DIRS})
+include_directories(cfg/cpp ${catkin_INCLUDE_DIRS})
 
 # common source files for both node and nodelet driver interfaces
 set(DRIVER_SOURCES 
@@ -53,7 +42,8 @@ set(DRIVER_SOURCES
   src/nodes/dev_camera1394stereo.cpp
   src/nodes/featuresstereo.cpp
   src/nodes/format7stereo.cpp
-  src/nodes/modes.cpp)
+  src/nodes/modes.cpp
+  src/nodes/trigger.cpp)
 
 # Mac OSX requires extra linker parameters
 if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
@@ -64,13 +54,14 @@ endif(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
 
 add_executable(camera1394stereo_node src/nodes/camera1394stereo_node.cpp ${DRIVER_SOURCES})
+add_dependencies(camera1394stereo_node camera1394stereo_gencfg) 
+add_dependencies(camera1394stereo_node camera1394stereo_EXPORTED_TARGETS) 
 target_link_libraries(camera1394stereo_node ${DC1394} ${catkin_LIBRARIES})
 
 add_library(camera1394stereo_nodelet src/nodes/nodelet.cpp ${DRIVER_SOURCES})
+add_dependencies(camera1394stereo_nodelet camera1394stereo_gencfg) 
+add_dependencies(camera1394stereo_nodelet camera1394stereo_EXPORTED_TARGETS) 
 target_link_libraries(camera1394stereo_nodelet ${DC1394} ${catkin_LIBRARIES})
-
-#add_dependencies(camera1394stereo_node camera1394stereo_gencfg) #MMC
-#add_dependencies(camera1394stereo_nodelet camera1394stereo_gencfg) #MMC
 
 # driver unit tests
 #
